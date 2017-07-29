@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -u
+
+tag=latest
+if [ $# -eq 1 ] ; then
+  tag=$1
+fi
+
+readonly REPO=kunst1080/x11
+readonly CONTAINER=$REPO:$tag
+
+docker run --rm -it --privileged -v /run/udev:/run/udev $CONTAINER
+
