@@ -12,9 +12,13 @@ if [ $# -ge 2 ] ; then
   command=$2
 fi
 
+option_mount_home=""
+if [ -v X11_HOME ] && [ "$X11_HOME" != "" ] ; then
+  option_mount_home="-v $X11_HOME:/home/user"
+fi
 
 readonly REPO=kunst1080/x11
 readonly CONTAINER=$REPO:$tag
 
-docker run --rm -it --privileged -v /run/udev:/run/udev $CONTAINER $command
+docker run --rm -it --privileged -v /run/udev:/run/udev $option_mount_home $CONTAINER $command
 
