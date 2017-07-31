@@ -10,7 +10,7 @@ RUN apt-get update \
 
 RUN sed -i "s/allowed_users=console/allowed_users=anybody/;$ a needs_root_rights=yes" /etc/X11/Xwrapper.config
 
-RUN useradd ${USER} -m -G sudo -s /bin/bash
+RUN useradd ${USER} -m -G sudo -s /bin/bash && echo $USER:$USER | chpasswd
 
 USER $USER
 WORKDIR /home/$USER
