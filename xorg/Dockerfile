@@ -6,6 +6,7 @@ ENV USER user
 RUN apt-get update \
         && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
             sudo vim xorg xserver-xorg-legacy xinit xterm \
+            rxvt-unicode firefox \
             fcitx fcitx-mozc fonts-ipafont im-config \
 	&& rm -rf /var/lib/apt/lists/*
 
