@@ -10,6 +10,12 @@ RUN apt-get update \
             wmaker-common \
             menu \
             x11-apps \
+            rxvt-unicode \
+            firefox \
+            fcitx \
+            fcitx-mozc \
+            fonts-ipafont \
+            im-config \
 	&& rm -rf /var/lib/apt/lists/*
 
 USER $USER

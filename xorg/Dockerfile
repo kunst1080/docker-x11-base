@@ -6,8 +6,6 @@ ENV USER user
 RUN apt-get update \
         && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
             sudo vim xorg xserver-xorg-legacy xinit xterm \
-            rxvt-unicode firefox \
-            fcitx fcitx-mozc fonts-ipafont im-config \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN sed -i "s/allowed_users=console/allowed_users=anybody/;$ a needs_root_rights=yes" /etc/X11/Xwrapper.config
