@@ -20,5 +20,9 @@ fi
 readonly REPO=kunst1080/x11
 readonly CONTAINER=$REPO:$tag
 
-docker run --rm -it --privileged -v /run/udev:/run/udev $option_mount_home $CONTAINER $command
+docker run --rm -it --privileged \
+	-v /run/udev:/run/udev \
+	$option_mount_home \
+	$CONTAINER \
+	$command
 
