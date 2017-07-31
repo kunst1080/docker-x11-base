@@ -22,6 +22,8 @@ readonly CONTAINER=$REPO:$tag
 
 docker run --rm -it --privileged \
 	-v /run/udev:/run/udev \
+	-v /etc/localtime:/etc/localtime:ro \
+	-v /usr/lib/locale/locale-archive:/usr/lib/locale/locale-archive:ro \
 	$option_mount_home \
 	$CONTAINER \
 	$command
