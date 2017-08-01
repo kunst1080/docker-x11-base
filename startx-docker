@@ -3,17 +3,24 @@
 set -u
 
 usage_exit() {
-        echo "Usage: $0 [-d home-directory] [-u user] [-c command] [tag]" 1>&2
+        echo "Usage: $0 [--rm] [-d home-directory] [-u user] [-c command] [tag]" 1>&2
         exit 1
 }
 
+option_rm=""
 option_mount_home=""
 option_user="-u user"
 command=""
 
-while getopts :d:u:c: OPT
+while getopts d:u:c:-: OPT
 do
     case $OPT in
+        -)
+            case "$OPTARG" in
+                rm)   option_rm="--rm"
+                ;;
+            esac
+            ;;
         d)  option_mount_home="-v $OPTARG:/home/user"
             ;;
         u)  option_user="-u $OPTARG"
@@ -35,7 +42,8 @@ fi
 readonly REPO=kunst1080/x11
 readonly CONTAINER=$REPO:$tag
 
-docker run --rm -it --privileged \
+docker run -it --privileged \
+	$option_rm \
 	-v /run/udev:/run/udev \
 	-v /etc/localtime:/etc/localtime:ro \
 	-v /usr/lib/locale/locale-archive:/usr/lib/locale/locale-archive:ro \
