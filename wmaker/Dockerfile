@@ -10,6 +10,7 @@ RUN apt-get update \
             wmaker-common \
             menu \
             x11-apps \
+            desktop-base \
             rxvt-unicode \
             firefox \
             fcitx \
