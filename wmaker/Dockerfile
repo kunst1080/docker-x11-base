@@ -11,10 +11,9 @@ RUN apt-get update \
             menu \
             x11-apps \
             desktop-base \
-            rxvt-unicode \
-            firefox \
-            fcitx \
-            fcitx-mozc \
+            xfce4-terminal \
+            chromium-browser \
+            ibus-mozc \
             fonts-ipafont \
             im-config \
 	&& rm -rf /var/lib/apt/lists/*
