@@ -39,7 +39,7 @@ if [ $# -ge 1 ] ; then
   tag=$1
 fi
 
-readonly REPO=kunst1080/x11
+readonly REPO=kunst1080/x11-base
 readonly CONTAINER=$REPO:$tag
 
 docker run -it --privileged \

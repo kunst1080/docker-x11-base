@@ -2,8 +2,6 @@
 
 set -u
 
-tag=$1
-if [ $1 = xorg ]; then
-    tag=latest
-fi
-docker build $1 -t kunst1080/x11:$tag
+IMAGE_NAME=kunst1080/x11-base
+docker rmi $IMAGE_NAME
+docker build . -t $IMAGE_NAME
