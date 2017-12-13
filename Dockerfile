@@ -6,8 +6,12 @@ ENV USER user
 RUN apt-get update \
         && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
             sudo \
+            unzip \
             vim \
+            zsh \
             less \
+            tmux \
+            usbutils \
             apt-file \
             apt-utils \
             dbus \
