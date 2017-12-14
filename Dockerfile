@@ -11,7 +11,6 @@ RUN apt-get update \
             xserver-xorg-legacy \
             xinit \
             xterm \
-            virtualbox-guest-x11 \
             usbutils \
 	&& rm -rf /var/lib/apt/lists/*
 
