@@ -9,7 +9,7 @@ usage_exit() {
 
 option_rm=""
 option_mount_home=""
-option_user="-u user"
+option_user="-u root"
 command=""
 
 while getopts d:u:c:-: OPT
