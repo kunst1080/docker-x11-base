@@ -28,6 +28,7 @@ RUN apt-get update \
             python3 \
             python3-pip \
             imagemagick \
+            software-properties-common \
             apt-file \
             apt-utils \
             autoconf \
