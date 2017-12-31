@@ -2,6 +2,6 @@
 
 set -u
 
-IMAGE_NAME=kunst1080/x11-base
-docker rmi $IMAGE_NAME
-docker build . -t $IMAGE_NAME
+IMAGE=kunst1080/x11-base
+docker rmi $IMAGE
+docker build . -t $IMAGE
