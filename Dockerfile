@@ -45,4 +45,4 @@ RUN apt-get update \
 
 RUN sed -i "s/allowed_users=console/allowed_users=anybody/;$ a needs_root_rights=yes" /etc/X11/Xwrapper.config
 
-CMD [ "/usr/bin/startx" ]
+CMD [ "/usr/bin/startx", "--", "vt7" ]
