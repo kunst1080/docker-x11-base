@@ -25,6 +25,7 @@ RUN apt-get update \
             less \
             tmux \
             gawk \
+            bc \
             python3 \
             python3-pip \
             imagemagick \
