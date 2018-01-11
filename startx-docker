@@ -1,54 +1,14 @@
 #!/bin/bash
 
-set -u
+set -eu
 
-usage_exit() {
-        echo "Usage: $0 [--rm] [-d home-directory] [-u user] [-c command] [tag]" 1>&2
-        exit 1
-}
+TAG=latest
+REPO=kunst1080/x11-base
+CONTAINER=$REPO:$TAG
 
-option_rm=""
-option_mount_home=""
-option_user="-u root"
-command=""
-
-while getopts d:u:c:-: OPT
-do
-    case $OPT in
-        -)
-            case "$OPTARG" in
-                rm)   option_rm="--rm"
-                ;;
-            esac
-            ;;
-        d)  option_mount_home="-v $OPTARG:/home/user"
-            ;;
-        u)  option_user="-u $OPTARG"
-            ;;
-        c)  command="$OPTARG"
-            ;;
-        \?) usage_exit
-            ;;
-    esac
-done
-
-shift $((OPTIND - 1))
-
-tag=latest
-if [ $# -ge 1 ] ; then
-  tag=$1
-fi
-
-readonly REPO=kunst1080/x11-base
-readonly CONTAINER=$REPO:$tag
-
-docker run -it --privileged \
-	$option_rm \
+docker run --rm -it --privileged \
 	-v /run/udev:/run/udev \
 	-v /etc/localtime:/etc/localtime:ro \
 	-v /usr/lib/locale/locale-archive:/usr/lib/locale/locale-archive:ro \
-	$option_user \
-	$option_mount_home \
 	$CONTAINER \
-	$command
-
+	$*
