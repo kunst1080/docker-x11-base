@@ -21,14 +21,10 @@ RUN apt-get update \
             openssh-client \
             unzip \
             vim \
-            zsh \
             less \
-            tmux \
             gawk \
-            bc \
             python3 \
             python3-pip \
-            imagemagick \
             software-properties-common \
             apt-transport-https \
             apt-file \
