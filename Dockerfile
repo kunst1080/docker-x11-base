@@ -19,10 +19,12 @@ RUN apt-get update \
             wget \
             git \
             openssh-client \
+            zip \
             unzip \
             vim \
             less \
             gawk \
+            imagemagick \
             python3 \
             python3-pip \
             software-properties-common \
