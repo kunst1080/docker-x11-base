@@ -2,6 +2,7 @@ FROM ubuntu:16.04
 MAINTAINER kunst1080 kontrapunkt1080@gmail.com
 
 RUN apt-get update \
+        && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
         && DEBIAN_FRONTEND=noninteractive apt-get install -y \
             dbus \
             dbus-x11 \
