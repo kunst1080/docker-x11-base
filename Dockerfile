@@ -11,6 +11,7 @@ RUN apt-get update \
             xinit \
             xterm \
             usbutils \
+            pciutils \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update \
